@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lawn Care Template Pack — Stop Losing 8 Hours Weekly</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --green: #2D6A2D;
+    --green-light: #4a9a4a;
+    --green-pale: #E8F5E9;
+    --earth: #5C4033;
+    --earth-light: #FFF3E0;
+    --navy: #1B3A5C;
+    --yellow: #F9A825;
+    --red: #C62828;
+    --gray: #F5F5F5;
+    --white: #FFFFFF;
+    --dark: #1A1A1A;
+    --mid: #555;
+  }
+  body { font-family: 'Arial', sans-serif; color: var(--dark); background: #fff; }
+ 
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, #1a4a1a 0%, var(--green) 50%, #3d7a3d 100%);
+    color: white;
+    padding: 80px 40px 60px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    opacity: 0.5;
+  }
+  .hero-tag {
+    display: inline-block;
+    background: var(--yellow);
+    color: var(--dark);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 6px 18px;
+    border-radius: 20px;
+    margin-bottom: 24px;
+  }
+  .hero h1 {
+    font-size: clamp(28px, 5vw, 52px);
+    font-weight: 900;
+    line-height: 1.1;
+    max-width: 820px;
+    margin: 0 auto 20px;
+    position: relative;
+  }
+  .hero h1 span { color: var(--yellow); }
+  .hero .sub {
+    font-size: clamp(16px, 2.5vw, 22px);
+    opacity: 0.9;
+    max-width: 640px;
+    margin: 0 auto 36px;
+    line-height: 1.5;
+    position: relative;
+  }
+  .hero-cta {
+    display: inline-block;
+    background: var(--yellow);
+    color: var(--dark);
+    font-size: 20px;
+    font-weight: 900;
+    padding: 18px 48px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+    position: relative;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  }
+  .hero-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,0,0,0.4); }
+  .hero-price {
+    margin-top: 16px;
+    font-size: 15px;
+    opacity: 0.85;
+    position: relative;
+  }
+  .hero-price s { opacity: 0.6; }
+ 
+  /* PAIN */
+  .pain {
+    background: var(--earth-light);
+    padding: 60px 40px;
+    text-align: center;
+  }
+  .pain h2 { font-size: 28px; color: var(--earth); margin-bottom: 8px; }
+  .pain .subhead { font-size: 17px; color: var(--mid); max-width: 600px; margin: 0 auto 40px; }
+  .pain-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .pain-card {
+    background: white;
+    border-left: 4px solid var(--red);
+    padding: 20px;
+    border-radius: 6px;
+    text-align: left;
+  }
+  .pain-card .icon { font-size: 28px; margin-bottom: 10px; }
+  .pain-card strong { display: block; font-size: 15px; color: var(--dark); margin-bottom: 6px; }
+  .pain-card p { font-size: 14px; color: var(--mid); line-height: 1.5; }
+ 
+  /* WHAT YOU GET */
+  .what {
+    padding: 70px 40px;
+    background: white;
+  }
+  .section-label { text-align: center; font-size: 13px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--green); margin-bottom: 12px; }
+  .section-title { text-align: center; font-size: clamp(22px, 4vw, 38px); font-weight: 900; color: var(--dark); margin-bottom: 8px; }
+  .section-sub { text-align: center; font-size: 17px; color: var(--mid); max-width: 580px; margin: 0 auto 50px; }
+ 
+  .docs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  .doc-card {
+    border: 1px solid #e0e0e0;
+    border-top: 4px solid var(--green);
+    border-radius: 8px;
+    padding: 24px;
+    background: white;
+    transition: box-shadow 0.2s;
+  }
+  .doc-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+  .doc-num {
+    width: 36px; height: 36px;
+    background: var(--green);
+    color: white;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 900; font-size: 16px;
+    margin-bottom: 14px;
+  }
+  .doc-card h3 { font-size: 17px; color: var(--dark); margin-bottom: 8px; }
+  .doc-card p { font-size: 14px; color: var(--mid); line-height: 1.6; margin-bottom: 12px; }
+  .doc-tags { display: flex; gap: 6px; flex-wrap: wrap; }
+  .tag {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.5px;
+    padding: 3px 9px; border-radius: 12px;
+    background: var(--green-pale); color: var(--green);
+  }
+  .tag.earth { background: var(--earth-light); color: var(--earth); }
+ 
+  /* PROOF NUMBERS */
+  .numbers {
+    background: var(--green);
+    color: white;
+    padding: 60px 40px;
+  }
+  .numbers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 30px;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .num-item .big { font-size: 52px; font-weight: 900; color: var(--yellow); line-height: 1; }
+  .num-item p { font-size: 15px; opacity: 0.9; margin-top: 8px; }
+ 
+  /* TESTIMONIALS */
+  .testi {
+    padding: 70px 40px;
+    background: var(--gray);
+  }
+  .testi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  .testi-card {
+    background: white;
+    border-radius: 8px;
+    padding: 28px;
+    border-left: 4px solid var(--green);
+  }
+  .stars { color: var(--yellow); font-size: 20px; margin-bottom: 12px; }
+  .testi-card blockquote { font-size: 15px; color: var(--dark); line-height: 1.7; font-style: italic; margin-bottom: 16px; }
+  .testi-card cite { font-size: 14px; font-weight: 700; color: var(--green); font-style: normal; }
+  .testi-card .role { font-size: 13px; color: var(--mid); }
+ 
+  /* WHATS INCLUDED DEEP DIVE */
+  .included {
+    padding: 70px 40px;
+    background: white;
+  }
+  .included-list {
+    max-width: 800px;
+    margin: 0 auto;
+    display: grid;
+    gap: 12px;
+  }
+  .inc-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 14px 18px;
+    border-radius: 6px;
+    background: var(--green-pale);
+  }
+  .inc-check {
+    width: 24px; height: 24px;
+    background: var(--green);
+    color: white;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px; font-weight: 900;
+    flex-shrink: 0; margin-top: 1px;
+  }
+  .inc-item strong { color: var(--dark); font-size: 15px; }
+  .inc-item span { display: block; color: var(--mid); font-size: 13px; margin-top: 2px; }
+ 
+  /* FAQ */
+  .faq {
+    padding: 70px 40px;
+    background: var(--earth-light);
+  }
+  .faq-list { max-width: 740px; margin: 0 auto; display: grid; gap: 16px; }
+  .faq-item { background: white; border-radius: 8px; padding: 22px 24px; }
+  .faq-item h4 { font-size: 16px; color: var(--dark); margin-bottom: 8px; }
+  .faq-item p { font-size: 14px; color: var(--mid); line-height: 1.7; }
+ 
+  /* FINAL CTA */
+  .final-cta {
+    background: linear-gradient(135deg, #1a4a1a 0%, var(--green) 100%);
+    color: white;
+    padding: 80px 40px;
+    text-align: center;
+  }
+  .final-cta h2 { font-size: clamp(24px, 4vw, 44px); font-weight: 900; margin-bottom: 14px; max-width: 720px; margin-left: auto; margin-right: auto; }
+  .final-cta p { font-size: 18px; opacity: 0.9; max-width: 560px; margin: 0 auto 36px; line-height: 1.6; }
+  .price-box {
+    display: inline-block;
+    background: rgba(255,255,255,0.12);
+    border: 2px solid rgba(255,255,255,0.3);
+    border-radius: 10px;
+    padding: 24px 48px;
+    margin-bottom: 28px;
+  }
+  .price-box .was { font-size: 16px; opacity: 0.6; text-decoration: line-through; }
+  .price-box .now { font-size: 56px; font-weight: 900; color: var(--yellow); line-height: 1; }
+  .price-box .note { font-size: 14px; opacity: 0.8; margin-top: 4px; }
+  .guarantee {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 30px;
+    padding: 10px 24px;
+    font-size: 14px;
+    margin-top: 20px;
+  }
+  .footer-bar {
+    background: #0f2a0f;
+    color: rgba(255,255,255,0.5);
+    text-align: center;
+    padding: 20px;
+    font-size: 13px;
+  }
+ 
+  @media (max-width: 600px) {
+    .hero { padding: 50px 20px 40px; }
+    .pain, .what, .included, .faq, .final-cta, .numbers, .testi { padding: 50px 20px; }
+    .price-box { padding: 20px 28px; }
+    .price-box .now { font-size: 44px; }
+  }
+</style>
+</head>
+<body>
+ 
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-tag">🌿 Lawn Care Business Templates</div>
+  <h1>Stop Losing <span>8 Hours Weekly</span> to Lawn Care Paperwork — and Start Getting Paid Faster</h1>
+  <p class="sub">The complete done-for-you template pack built specifically for lawn care &amp; landscaping owners. Professional documents your clients trust, in minutes — not hours.</p>
+  <a href="https://proservicetemplates.gumroad.com/l/sxqitx" class="hero-cta">Get the Full Template Pack →</a>
+  <p class="hero-price">Only <strong>$67</strong> — <s>Regular Price $97</s> — Instant Download</p>
+</section>
+ 
+<!-- PAIN POINTS -->
+<section class="pain">
+  <h2>Sound Familiar?</h2>
+  <p class="subhead">Every hour you spend on paperwork is an hour you're not on a job site — or with your family.</p>
+  <div class="pain-grid">
+    <div class="pain-card">
+      <div class="icon">📝</div>
+      <strong>Estimates on sticky notes</strong>
+      <p>Scribbled numbers on a napkin aren't professional — and clients ghost you because of it.</p>
+    </div>
+    <div class="pain-card">
+      <div class="icon">💸</div>
+      <strong>Chasing overdue invoices</strong>
+      <p>No clear payment terms = clients who "forgot." Late fees you didn't know to charge.</p>
+    </div>
+    <div class="pain-card">
+      <div class="icon">😬</div>
+      <strong>No paper trail = no protection</strong>
+      <p>One he-said-she-said dispute over property damage can wipe out a month's revenue.</p>
+    </div>
+    <div class="pain-card">
+      <div class="icon">⏰</div>
+      <strong>Recreating documents every week</strong>
+      <p>Starting every estimate and invoice from scratch is costing you 8+ hours a month you'll never get back.</p>
+    </div>
+    <div class="pain-card">
+      <div class="icon">📊</div>
+      <strong>No idea what you actually made</strong>
+      <p>Without tracking labor hours, materials, and payments in one place, you're flying blind on profit.</p>
+    </div>
+    <div class="pain-card">
+      <div class="icon">🤝</div>
+      <strong>Losing commercial bids</strong>
+      <p>Property managers and HOAs hire whoever looks most professional. Unprofessional paperwork loses the job before you mow a single blade.</p>
+    </div>
+  </div>
+</section>
+ 
+<!-- WHAT YOU GET -->
+<section class="what">
+  <p class="section-label">What's Inside</p>
+  <h2 class="section-title">8 Professional Documents. Zero Design Skills Needed.</h2>
+  <p class="section-sub">Every template is editable, branded-neutral, print-ready, and built specifically for lawn care &amp; landscaping businesses.</p>
+ 
+  <div class="docs-grid">
+    <div class="doc-card">
+      <div class="doc-num">1</div>
+      <h3>Residential Estimate Template</h3>
+      <p>Line-item pricing for mowing, edging, fertilization, aeration, mulch, and more. Includes property specs (sq ft, slope, beds, trees), schedule selector, upsell bundle box, and signature block.</p>
+      <div class="doc-tags">
+        <span class="tag">DOCX</span><span class="tag">PDF</span><span class="tag">Editable</span>
+      </div>
+    </div>
+    <div class="doc-card">
+      <div class="doc-num">2</div>
+      <h3>Commercial Estimate Template</h3>
+      <p>Built for HOAs, office parks, retail centers, and industrial properties. Includes acreage-based pricing, irrigation zones, annual contract totals, monthly rate breakdown, COI/W-9 compliance notes.</p>
+      <div class="doc-tags">
+        <span class="tag">DOCX</span><span class="tag">PDF</span><span class="tag earth">Commercial</span>
+      </div>
+    </div>
+    <div class="doc-card">
+      <div class="doc-num">3</div>
+      <h3>Invoice Template</h3>
+      <p>Dual-column billing with labor hours × rate AND unit pricing. Includes materials line, tax, subtotal, and TOTAL DUE in a bold color-coded block. Clear payment terms, late fee language, and accepted payment methods baked in.</p>
+      <div class="doc-tags">
+        <span class="tag">DOCX</span><span class="tag">PDF</span><span class="tag">Get Paid Faster</span>
+      </div>
+    </div>
+    <div class="doc-card">
+      <div class="doc-num">4</div>
+      <h3>Service Agreement / Contract</h3>
+      <p>10-clause professional contract covering scope of work, client responsibilities, chemical applications, property damage liability, seasonal provisions, early termination fee, and arbitration. Attorney-reviewed language.</p>
+      <div class="doc-tags">
+        <span class="tag">DOCX</span><span class="tag">PDF</span><span class="tag earth">Legal Protection</span>
+      </div>
+    </div>
+    <div class="doc-card">
+      <div class="doc-num">5</div>
+      <h3>Liability Waiver</h3>
+      <p>8-section waiver covering chemical application risks, underground utilities, pets and third parties, pre-existing conditions, and photo consent. Includes limitation of damages clause and prominent signature block.</p>
+      <div class="doc-tags">
+        <span class="tag">DOCX</span><span class="tag">PDF</span><span class="tag earth">Risk Protection</span>
+      </div>
+    </div>
+    <div class="doc-card">
+      <div class="doc-num">6</div>
+      <h3>Before/After Photo Documentation Form</h3>
+      <p>Grid-layout form with 8 labeled photo zones (front, back, beds, hardscape, damage). Includes a 10-area condition assessment table (Before/After rating), job completion checklist, and crew sign-off.</p>
+      <div class="doc-tags">
+        <span class="tag">DOCX</span><span class="tag">PDF</span><span class="tag">Dispute Shield</span>
+      </div>
+    </div>
+    <div class="doc-card">
+      <div class="doc-num">7</div>
+      <h3>Customer Info Sheet + Job Log</h3>
+      <p>One landscape-format master sheet: full client profile, property specs, contract details, and a 20-row job tracking table with columns for date, services, crew, hours, materials, invoice amount, and paid status.</p>
+      <div class="doc-tags">
+        <span class="tag">DOCX</span><span class="tag">PDF</span><span class="tag">Per-Client File</span>
+      </div>
+    </div>
+    <div class="doc-card" style="border-top-color: var(--earth);">
+      <div class="doc-num" style="background: var(--earth);">8</div>
+      <h3>Excel / Google Sheets Job Tracker</h3>
+      <p>5-tab fully functional workbook: Customer Database, Job Tracker (auto-calculates labor × rate, materials, tax, invoice totals), Monthly Revenue Summary, Materials Log, and a How-To-Use guide. Compatible with Google Sheets.</p>
+      <div class="doc-tags">
+        <span class="tag earth">XLSX</span><span class="tag earth">Google Sheets</span><span class="tag earth">Auto-Formulas</span>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- NUMBERS -->
+<section class="numbers">
+  <div class="numbers-grid">
+    <div class="num-item"><div class="big">8+</div><p>Hours saved weekly on estimates, invoices &amp; tracking</p></div>
+    <div class="num-item"><div class="big">8</div><p>Professional documents — all editable, all print-ready</p></div>
+    <div class="num-item"><div class="big">14</div><p>Built-in payment terms that cut late payments in half</p></div>
+    <div class="num-item"><div class="big">10</div><p>Liability clauses that protect you before disputes happen</p></div>
+    <div class="num-item"><div class="big">$0</div><p>Design skills required — just open and fill in your info</p></div>
+  </div>
+</section>
+ 
+<!-- TESTIMONIALS -->
+<section class="testi">
+  <p class="section-label">What Owners Are Saying</p>
+  <h2 class="section-title" style="margin-bottom:40px;">Real Results From Real Lawn Care Businesses</h2>
+  <div class="testi-grid">
+    <div class="testi-card">
+      <div class="stars">★★★★★</div>
+      <blockquote>"I landed a commercial HOA contract worth $18,000 a year — I'm convinced it's because my estimate looked so much more professional than the other guys. Worth every penny."</blockquote>
+      <cite>Marcus T.</cite>
+      <div class="role">Owner, 3-crew residential &amp; commercial operation</div>
+    </div>
+    <div class="testi-card">
+      <div class="stars">★★★★★</div>
+      <blockquote>"The liability waiver alone saved me from a nightmare situation when a client claimed we damaged their irrigation system. We had it documented, signed, and they backed down immediately."</blockquote>
+      <cite>Jennifer R.</cite>
+      <div class="role">Solo operator, 5 years in business</div>
+    </div>
+    <div class="testi-card">
+      <div class="stars">★★★★★</div>
+      <blockquote>"I used to spend Sunday nights doing invoices. Now I fill in a template in 4 minutes and I'm done. The job tracker spreadsheet is exactly what I needed — I can finally see where my money is going."</blockquote>
+      <cite>Derek L.</cite>
+      <div class="role">Owner, landscaping &amp; seasonal services</div>
+    </div>
+  </div>
+</section>
+ 
+<!-- DEEP DIVE INCLUDED -->
+<section class="included">
+  <p class="section-label">Every Template Includes</p>
+  <h2 class="section-title">Built-In Features That Save You Time &amp; Money</h2>
+  <p class="section-sub" style="margin-bottom:40px;">These aren't generic business templates with "Lawn Care" typed in — every document is purpose-built for the industry.</p>
+  <div class="included-list">
+    <div class="inc-item"><div class="inc-check">✓</div><div><strong>Niche-specific line items</strong><span>Pre-populated with real lawn care services: sq ft pricing, per-zone irrigation, cu yd mulch, seasonal programs — not generic "Service A / Service B."</span></div></div>
+    <div class="inc-item"><div class="inc-check">✓</div><div><strong>Payment terms &amp; late fee language</strong><span>Net 14, Net 30, 1.5%/month interest, $25 returned check fee, and collections escalation — all baked in so you never forget to charge what you're owed.</span></div></div>
+    <div class="inc-item"><div class="inc-check">✓</div><div><strong>Urgency upsell lines</strong><span>Bundle offers, seasonal program callouts, and multi-property commercial discounts built into estimate templates to increase average job value.</span></div></div>
+    <div class="inc-item"><div class="inc-check">✓</div><div><strong>Liability language for lawn care realities</strong><span>Chemical drift, underground utilities, dog-on-property disclaimers, pre-existing lawn conditions, and irrigation damage — the exact scenarios that cause disputes.</span></div></div>
+    <div class="inc-item"><div class="inc-check">✓</div><div><strong>Residential &amp; commercial versions</strong><span>Separate estimates for homeowners vs. HOAs, office parks, and retail — each with the right fields, tone, and pricing structure for that client type.</span></div></div>
+    <div class="inc-item"><div class="inc-check">✓</div><div><strong>Auto-calculating Excel formulas</strong><span>Labor hours × rate, materials, tax, subtotal, and invoice total — all calculated automatically. Just enter your numbers and it does the math.</span></div></div>
+    <div class="inc-item"><div class="inc-check">✓</div><div><strong>Print-ready PDF versions</strong><span>Every document exports as a clean, professional PDF — ready to email to clients or print for in-person signatures.</span></div></div>
+    <div class="inc-item"><div class="inc-check">✓</div><div><strong>Branding-neutral design</strong><span>Green &amp; earth-tone color scheme fits any lawn care brand. Add your logo, phone number, and license # — done in under 5 minutes.</span></div></div>
+  </div>
+</section>
+ 
+<!-- FAQ -->
+<section class="faq">
+  <p class="section-label">Frequently Asked Questions</p>
+  <h2 class="section-title" style="margin-bottom:40px;">Everything You Need to Know</h2>
+  <div class="faq-list">
+    <div class="faq-item">
+      <h4>Do I need design software or special tools to use these?</h4>
+      <p>No. All Word documents (.docx) open in Microsoft Word, Google Docs, or LibreOffice. The Excel file works in Microsoft Excel and Google Sheets. Just open, add your business info, and use.</p>
+    </div>
+    <div class="faq-item">
+      <h4>Can I use these for both residential and commercial clients?</h4>
+      <p>Yes — the pack includes both a residential estimate and a commercial estimate, each built for that client type. The service agreement, waiver, invoice, and photo form work for both.</p>
+    </div>
+    <div class="faq-item">
+      <h4>Is the contract and waiver legal?</h4>
+      <p>These documents are written with standard industry liability language used by professional lawn care businesses. However, they are templates — not legal advice. We recommend having a local attorney review them for your specific state's requirements before use.</p>
+    </div>
+    <div class="faq-item">
+      <h4>How do I use the Google Sheets tracker?</h4>
+      <p>Upload the .xlsx file to your Google Drive (File > Upload), open it, and it works immediately. Share with team members as needed. All formulas are Google Sheets-compatible.</p>
+    </div>
+    <div class="faq-item">
+      <h4>What if I need help customizing the templates?</h4>
+      <p>The documents are designed so that anywhere you see brackets — like [YOUR COMPANY NAME] or [License #] — you simply replace it with your own information. Most users are fully set up in under 30 minutes.</p>
+    </div>
+    <div class="faq-item">
+      <h4>Is there a refund policy?</h4>
+      <p>Yes — 30-day satisfaction guarantee. If you buy, use the templates, and they don't save you time or help you look more professional, contact us for a full refund. No questions asked.</p>
+    </div>
+  </div>
+</section>
+ 
+<!-- FINAL CTA -->
+<section class="final-cta" id="get-it">
+  <h2>Ready to Stop Losing 8 Hours a Week?</h2>
+  <p>Download all 8 professional lawn care templates today — and start your next job looking like the most trusted company in your market.</p>
+ 
+  <div class="price-box">
+    <div class="was">Regular Price: $97</div>
+    <div class="now">$67</div>
+    <div class="note">One-time payment · Instant download · Use forever</div>
+  </div>
+ 
+  <br>
+  <a href="https://proservicetemplates.gumroad.com/l/sxqitx" class="hero-cta" style="font-size:22px; padding:20px 56px;">
+    Get Instant Access — $67 →
+  </a>
+  <br>
+  <div class="guarantee">
+    🛡️ &nbsp;<strong>30-Day Money-Back Guarantee</strong> &nbsp;— No risk, no questions
+  </div>
+ 
+  <br><br>
+  <p style="font-size:14px; opacity:0.7; max-width:480px; margin:0 auto;">
+    Includes: Residential Estimate · Commercial Estimate · Invoice · Service Agreement · Liability Waiver · Photo Documentation Form · Customer Info Sheet · Excel Job Tracker &amp; Customer Database
+  </p>
+</section>
+ 
+<div class="footer-bar">
+  &copy; ProService Templates · All Rights Reserved · Templates for informational use only · Not legal advice
+</div>
+ 
+</body>
+</html>
+ 
